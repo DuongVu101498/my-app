@@ -14,6 +14,7 @@ pipeline {
                 echo "new commit"
                 echo "new commit 2"
                 echo "new commit 3"
+                echo "new commit 55555"
             }
         }
         
