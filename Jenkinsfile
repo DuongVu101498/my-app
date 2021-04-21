@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 echo "new commit"
+                echo "new commit 2"
             }
         }
         
