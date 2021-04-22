@@ -5,7 +5,7 @@ pipeline {
             agent{ label 'linux'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
-                java --version
+                sh 'java --version'
             }
         }
         stage('stage 2') {
@@ -14,7 +14,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 echo "new commit"
                 echo "new commit fixed again"
-                java --version
+                bat 'java --version'
             }
         }
         
