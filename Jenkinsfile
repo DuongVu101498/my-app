@@ -5,6 +5,14 @@ pipeline {
             agent{ label 'linux'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
+                sh 'git --version'
+            }
+        }
+        stage('stage 1.2') {
+            agent{ label 'linux'}
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
+                sh 'git --version'
             }
         }
         stage('stage 2') {
@@ -12,9 +20,9 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 echo "new commit"
-                echo "new commit 2"
-                echo "new commit 3"
-                echo "new commit 55555"
+                bat """ cd C:\\Program Files\\Git\\bin
+                        C:
+                        git --version"""
             }
         }
         
