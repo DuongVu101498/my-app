@@ -5,7 +5,9 @@ pipeline {
             agent{ label 'linux'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
-                sh 'git --version'
+                sh ''' pwd
+                       touch file1.txt
+                       ls '''
             }
         }
 
