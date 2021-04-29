@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 sh ''' pwd
-                       touch file1.txt
+                       touch file2.txt
                        ls '''
             }
         }
