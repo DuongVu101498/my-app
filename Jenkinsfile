@@ -6,8 +6,10 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 sh ''' pwd
-                       touch file2.txt
-                       ls '''
+                       touch file3.txt
+                       ls
+                       set
+                       printenv'''
             }
         }
 
@@ -17,7 +19,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 echo "new commit 2"
                 bat ''' cd
-                        git --version'''
+                        set'''
             }
         }
         
