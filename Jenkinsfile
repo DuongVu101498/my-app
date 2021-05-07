@@ -20,7 +20,7 @@ pipeline {
             agent{ label 'linux'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
-                sh '''mvn --version'''
+                sh '''java --version'''
                 script {
                          println "currentBuild.result = ${currentBuild.currentResult}"
                          error "This pipeline stops here!"
