@@ -9,17 +9,29 @@ pipeline {
                        touch file3.txt
                        ls
                        set
-                       printenv'''
+                       printenv
+                       echo ${currentBuild.currentResult}'''
             }
         }
-
-        stage('stage 2') {
+         stage('stage 2') {
+            agent{ label 'linux'}
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
+                sh '''mvn --version
+                      echo ${currentBuild.currentResult}'''
+                script {
+                         error "This pipeline stops here!"
+                       }
+            }
+        }
+        stage('stage 3') {
             agent{ label 'window'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 echo "new commit 2"
                 bat ''' cd
-                        set'''
+                        set
+                        echo ${currentBuild.currentResult}'''
             }
         }
         
