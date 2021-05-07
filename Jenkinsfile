@@ -10,16 +10,19 @@ pipeline {
                        ls
                        set
                        printenv
-                       echo ${currentBuild.currentResult}'''
+                       '''
+                script {
+                     println "currentBuild.result = ${currentBuild.currentResult}"
+                }
             }
         }
          stage('stage 2') {
             agent{ label 'linux'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
-                sh '''mvn --version
-                      echo ${currentBuild.currentResult}'''
+                sh '''mvn --version'''
                 script {
+                         println "currentBuild.result = ${currentBuild.currentResult}"
                          error "This pipeline stops here!"
                        }
             }
@@ -30,8 +33,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 echo "new commit 2"
                 bat ''' cd
-                        set
-                        echo ${currentBuild.currentResult}'''
+                        set'''
             }
         }
         
