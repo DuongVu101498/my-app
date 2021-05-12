@@ -22,7 +22,6 @@ pipeline {
                 sh '''java --version'''
                 script {
                          println "currentBuild.result = ${currentBuild.currentResult}"
-                         error "This pipeline stops here!"
                        }
             }
         }
@@ -39,10 +38,10 @@ pipeline {
             agent{ label 'k8s'}
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
-                sh '''java --version'''
+                sh '''java --version
+                      kubectl get services --all-namspaces'''
                 script {
                          println "currentBuild.result = ${currentBuild.currentResult}"
-                         error "This pipeline stops here!"
                        }
             }
         }
