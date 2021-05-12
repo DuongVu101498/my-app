@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 sh ''' pwd
-                       touch file3.txt
                        ls
                        set
                        printenv
@@ -36,6 +35,16 @@ pipeline {
                         set'''
             }
         }
-        
+         stage('stage 4') {
+            agent{ label 'k8s'}
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
+                sh '''java --version'''
+                script {
+                         println "currentBuild.result = ${currentBuild.currentResult}"
+                         error "This pipeline stops here!"
+                       }
+            }
+        }
     }
 }
