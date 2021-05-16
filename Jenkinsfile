@@ -38,7 +38,7 @@ pipeline {
                         bat ''' cd
                             set'''
                          script {
-                         println "hello"
+                         println _Name
                        }
                      }
                  }
