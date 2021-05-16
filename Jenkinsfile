@@ -47,7 +47,7 @@ pipeline {
                      steps {
                        echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                        sh '''java --version
-                             kubectl get pod'''
+                             kubectl get services --all-namespaces'''
                        script {
                          println "currentBuild.result = ${currentBuild.currentResult}"
                          println _Name  
