@@ -22,19 +22,9 @@ pipeline {
                      steps {
                        echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                        sh '''java --version'''
-                       stage('1.5') {
-                            agent{ label 'window'}
-                              steps {
-                                echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
-                                echo "new commit 2"
-                                bat ''' cd
-                                set'''
-                              }
-                       }
                        script {
                          println "currentBuild.result = ${currentBuild.currentResult}"
                        }
-                       sh '''java --version'''
                      }
                   }
                  stage('2') {
