@@ -36,6 +36,15 @@ pipeline {
                             set'''
                      }
                  }
+                 stage('3'){
+                     steps {
+                       echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
+                       sh '''java --version'''
+                       script {
+                         println "currentBuild.result = ${currentBuild.currentResult}"
+                       }
+                     }
+                  }
              }
         }
         stage('stage 3') {
