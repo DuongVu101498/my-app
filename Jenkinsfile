@@ -17,13 +17,17 @@ pipeline {
         }
          stage('stage 2') {
             agent{ label 'linux'}
-            steps {
+             stages{
+                 stage('1'){
+               steps {
                 echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                 sh '''java --version'''
                 script {
                          println "currentBuild.result = ${currentBuild.currentResult}"
                        }
-            }
+                }
+               }
+             }
         }
         stage('stage 3') {
             agent{ label 'window'}
