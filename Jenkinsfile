@@ -24,9 +24,9 @@ pipeline {
                        echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                        sh '''java --version'''
                        script {
-                         def _Name = "Hello world!"
+                         _Name = "Hello world!"
                          println "currentBuild.result = ${currentBuild.currentResult}"
-                         println(_Name)
+                         println _Name
                        }
                      }
                   }
@@ -38,7 +38,7 @@ pipeline {
                         bat ''' cd
                             set'''
                          script {
-                         println("hello")
+                         println "hello"
                        }
                      }
                  }
@@ -48,8 +48,8 @@ pipeline {
                        echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                        sh '''java --version'''
                        script {
-                         println(_Name)
                          println "currentBuild.result = ${currentBuild.currentResult}"
+                         println _Name  
                        }
                      }
                   }
