@@ -19,6 +19,7 @@ pipeline {
             agent{ label 'linux'}
              stages{
                  stage('1'){
+                     agent{ label 'linux'}
                      steps {
                        echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                        sh '''java --version'''
@@ -37,6 +38,7 @@ pipeline {
                      }
                  }
                  stage('3'){
+                     agent{ label 'linux'}
                      steps {
                        echo "Running ${env.BUILD_ID} on ${env.NODE_NAME}"
                        sh '''java --version'''
